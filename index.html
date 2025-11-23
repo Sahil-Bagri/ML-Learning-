@@ -3,60 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feature Engineering & Selection Knowledge Base</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Interactive Feature Engineering Knowledge Base</title>
+   <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Feature Engineering & Selection</h1>
-            <p class="subtitle">Knowledge Base with Text-to-Speech</p>
-        </header>
+        <div class="header">
+            <div class="logo">
+                <h1>Feature Engineering Knowledge Base</h1>
+                <p>Interactive Learning with Text-to-Speech</p>
+            </div>
+        </div>
         
-        <div class="content">
-            <div class="selection-area">
-                <label for="question-select">Select a Topic:</label>
-                <select id="question-select">
-                    <option value="">-- Choose a topic --</option>
-                    <option value="1">1. Feature Engineering</option>
-                    <option value="2">2. Feature Selection</option>
-                    <option value="3">3. Filter Based Approach</option>
-                    <option value="4">4. Information Gain</option>
-                    <option value="5">5. Chi-Square Test</option>
-                    <option value="6">6. Fisher Score</option>
-                    <option value="7">7. Handling Missing Values</option>
-                    <option value="8">8. Wrapper Method</option>
-                    <option value="9">9. Exhaustive Feature Selection</option>
-                    <option value="10">10. Recursive Feature Elimination (RFE)</option>
-                    <option value="11">11. Project: Titanic Dataset Feature Engineering</option>
-                    <option value="12">12. Encoding Categorical Variables</option>
-                    <option value="13">13. Embedding</option>
-                    <option value="14">14. Dimensionality Reduction</option>
-                    <option value="15">15. Principal Component Analysis (PCA)</option>
-                    <option value="16">16. Linear Discriminant Analysis (LDA)</option>
-                    <option value="17">17. Bagging and Boosting</option>
-                </select>
+        <div class="navigation">
+            <div class="nav-container">
+                <div class="dropdown-container">
+                    <select class="topic-select" id="topic-select">
+                        <option value="">-- Select a Topic --</option>
+                        <option value="1">1. Feature Engineering</option>
+                        <option value="2">2. Feature Selection</option>
+                        <option value="3">3. Filter Based Approach</option>
+                        <option value="4">4. Information Gain</option>
+                        <option value="5">5. Chi-Square Test</option>
+                        <option value="6">6. Fisher Score</option>
+                        <option value="7">7. Handling Missing Values</option>
+                        <option value="8">8. Wrapper Method</option>
+                        <option value="9">9. Exhaustive Feature Selection</option>
+                        <option value="10">10. Recursive Feature Elimination (RFE)</option>
+                        <option value="11">11. Titanic Dataset Feature Engineering</option>
+                        <option value="12">12. Encoding Categorical Variables</option>
+                        <option value="13">13. Embedding</option>
+                        <option value="14">14. Dimensionality Reduction</option>
+                        <option value="15">15. Principal Component Analysis (PCA)</option>
+                        <option value="16">16. Linear Discriminant Analysis (LDA)</option>
+                        <option value="17">17. Bagging and Boosting</option>
+                    </select>
+                </div>
+                
+                <div class="navigation-buttons">
+                    <button class="nav-btn" id="prev-btn" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                        </svg>
+                        Previous
+                    </button>
+                    <button class="nav-btn" id="next-btn" disabled>
+                        Next
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
             
-            <div class="answer-area">
-                <div class="answer-title" id="answer-title">Please select a topic to view its explanation</div>
-                <div class="answer-content" id="answer-content"></div>
+            <div class="progress-section">
+                <div class="progress-title">Your Learning Progress</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="progress-text" id="progress-text">0/17 topics completed</div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="content-header">
+                <h1 class="topic-title" id="topic-title">Welcome to Feature Engineering</h1>
+                <p class="topic-subtitle" id="topic-subtitle">Select a topic to begin learning</p>
+            </div>
+            
+            <div class="answer-area" id="answer-content">
+                <div class="answer-content">
+                    <p>Welcome to the Interactive Feature Engineering Knowledge Base! This resource covers essential concepts in feature engineering and selection for machine learning.</p>
+                    <p>Use the dropdown menu to navigate between topics, or use the navigation buttons to move sequentially through the content. Each topic includes:</p>
+                    <ul>
+                        <li>Detailed explanation of the concept</li>
+                        <li>Key points for quick review</li>
+                        <li>Text-to-speech functionality with pause/resume</li>
+                        <li>Bookmarking for important topics</li>
+                    </ul>
+                    <p>Track your progress as you complete each topic. Let's get started!</p>
+                </div>
+            </div>
+            
+            <div class="key-points" id="key-points" style="display: none;">
+                <h3>Key Points</h3>
+                <ul id="key-points-list">
+                    <!-- Key points will be populated by JavaScript -->
+                </ul>
+            </div>
+            
+            <div class="bookmarks-section" id="bookmarks-section" style="display: none;">
+                <h3>Bookmarked Topics</h3>
+                <div class="bookmarks-list" id="bookmarks-list">
+                    <!-- Bookmarks will be populated by JavaScript -->
+                </div>
             </div>
             
             <div class="controls">
-                <button class="speak-btn" id="speak-btn">
+                <button class="control-btn speak-btn" id="speak-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/>
                         <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/>
                         <path d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707zM6.717 3.55A.5.5 0 0 1 7.43 4.084L5.64 5.872a2.5 2.5 0 0 0-.708 1.064L4.78 8.048a.5.5 0 0 1-.932-.372l.61-3.123a3.5 3.5 0 0 1 .992-1.51L6.717 3.55z"/>
                     </svg>
-                    Speak Answer
+                    Speak Content
                 </button>
-                <button class="stop-btn" id="stop-btn">
+                <button class="control-btn pause-btn" id="pause-btn" style="display: none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M6 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5zm4 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/>
+                    </svg>
+                    Pause
+                </button>
+                <button class="control-btn resume-btn" id="resume-btn" style="display: none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                    </svg>
+                    Resume
+                </button>
+                <button class="control-btn stop-btn" id="stop-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M5 3.5h6A1.5 1.5 0 0 1 12.5 5v6a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 11V5A1.5 1.5 0 0 1 5 3.5z"/>
                     </svg>
                     Stop Speaking
+                </button>
+                <button class="control-btn bookmark-btn" id="bookmark-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+                    </svg>
+                    Bookmark
                 </button>
             </div>
             
@@ -64,114 +138,482 @@
         </div>
         
         <footer>
-            <p>Feature Engineering & Selection Knowledge Base | Text-to-Speech Enabled</p>
+            <p>Interactive Feature Engineering Knowledge Base | Text-to-Speech Enabled | Progress Tracking</p>
         </footer>
     </div>
 
     <script>
-        // Data containing all questions and answers
+        // Data containing all questions, answers, and key points
         const data = {
             "1": {
-                "title": "1. Feature Engineering",
-                "content": "Feature engineering is the process of using domain knowledge to create new features (variables) from existing data to improve the performance of machine learning models. It is a crucial step as the performance of a model is heavily dependent on the quality of the features provided.\n\nKey aspects include:\n\n- Creation: Generating new features, e.g., creating 'FamilySize' from 'SibSp' and 'Parch' in the Titanic dataset.\n\n- Transformation: Modifying existing features, such as converting a 'Date' string into separate 'Day', 'Month', and 'Year' components, or extracting the title from a 'Name' field (Mr., Mrs., Miss).\n\n- Aggregation: Summarizing data, like calculating the average spending per customer.\n\n- Handling Missing Values: Imputing missing data using mean, median, mode, or more advanced techniques like K-Nearest Neighbors.\n\nThe goal is to provide the model with more informative and relevant inputs, which can lead to significantly better predictive accuracy."
+                "title": "Feature Engineering",
+                "subtitle": "Creating meaningful features from raw data",
+                "content": "Feature engineering is the process of using domain knowledge to create new features (variables) from existing data to improve the performance of machine learning models. It is a crucial step as the performance of a model is heavily dependent on the quality of the features provided.",
+                "subPoints": [
+                    "Creation: Generating new features, e.g., creating 'FamilySize' from 'SibSp' and 'Parch' in the Titanic dataset.",
+                    "Transformation: Modifying existing features, such as converting a 'Date' string into separate 'Day', 'Month', and 'Year' components, or extracting the title from a 'Name' field (Mr., Mrs., Miss).",
+                    "Aggregation: Summarizing data, like calculating the average spending per customer.",
+                    "Handling Missing Values: Imputing missing data using mean, median, mode, or more advanced techniques like K-Nearest Neighbors."
+                ],
+                "conclusion": "The goal is to provide the model with more informative and relevant inputs, which can lead to significantly better predictive accuracy.",
+                "keyPoints": [
+                    "Uses domain knowledge to create new features",
+                    "Includes creation, transformation, and aggregation",
+                    "Handles missing values through imputation",
+                    "Crucial for model performance improvement"
+                ]
             },
             "2": {
-                "title": "2. Feature Selection",
-                "content": "Feature selection is the process of automatically or manually selecting a subset of the most relevant features from the original dataset for model construction. It is essential to avoid the 'curse of dimensionality' and build simpler, faster, and more interpretable models.\n\nBenefits include:\n\n- Reduces Overfitting: Less redundant data means less opportunity for the model to learn noise.\n\n- Improves Accuracy: By removing irrelevant features, the model can focus on the true signals.\n\n- Reduces Training Time: Fewer features mean fewer computations.\n\n- Enhances Model Interpretability: It's easier to understand a model built with 10 features than one with 1000.\n\nFeature selection methods are broadly classified into three categories: Filter methods, Wrapper methods, and Embedded methods."
+                "title": "Feature Selection",
+                "subtitle": "Choosing the most relevant features",
+                "content": "Feature selection is the process of automatically or manually selecting a subset of the most relevant features from the original dataset for model construction. It is essential to avoid the 'curse of dimensionality' and build simpler, faster, and more interpretable models.",
+                "subPoints": [
+                    "Reduces Overfitting: Less redundant data means less opportunity for the model to learn noise.",
+                    "Improves Accuracy: By removing irrelevant features, the model can focus on the true signals.",
+                    "Reduces Training Time: Fewer features mean fewer computations.",
+                    "Enhances Model Interpretability: It's easier to understand a model built with 10 features than one with 1000."
+                ],
+                "conclusion": "Feature selection methods are broadly classified into three categories: Filter methods, Wrapper methods, and Embedded methods.",
+                "keyPoints": [
+                    "Selects most relevant features from dataset",
+                    "Reduces overfitting and improves accuracy",
+                    "Decreases training time",
+                    "Three main methods: Filter, Wrapper, Embedded"
+                ]
             },
             "3": {
-                "title": "3. Filter Based Approach",
-                "content": "The Filter based approach is a feature selection method that selects features based on their intrinsic statistical properties, independent of any machine learning model. It uses a statistical measure (a 'filter') to score each feature and select the top-ranked ones.\n\nCharacteristics:\n\n- Model Agnostic: It is not tied to a specific learning algorithm, making it computationally cheap and fast.\n\n- Univariate: Typically, it evaluates each feature in isolation, ignoring feature dependencies.\n\n- Common Statistical Measures: Includes Correlation Coefficient, Information Gain, Chi-Square Test, and Fisher Score.\n\nProcess:\n\n1. Calculate a score for each feature.\n\n2. Rank the features based on their scores.\n\n3. Select the top-k features or all features above a certain threshold.\n\nWhile efficient, its main drawback is that it may fail to select the optimal feature subset if features are correlated, as it does not consider feature interactions."
+                "title": "Filter Based Approach",
+                "subtitle": "Statistical feature selection method",
+                "content": "The Filter based approach is a feature selection method that selects features based on their intrinsic statistical properties, independent of any machine learning model. It uses a statistical measure (a 'filter') to score each feature and select the top-ranked ones.",
+                "subPoints": [
+                    "Model Agnostic: It is not tied to a specific learning algorithm, making it computationally cheap and fast.",
+                    "Univariate: Typically, it evaluates each feature in isolation, ignoring feature dependencies.",
+                    "Common Statistical Measures: Includes Correlation Coefficient, Information Gain, Chi-Square Test, and Fisher Score."
+                ],
+                "conclusion": "While efficient, its main drawback is that it may fail to select the optimal feature subset if features are correlated, as it does not consider feature interactions.",
+                "keyPoints": [
+                    "Uses statistical properties for selection",
+                    "Model agnostic and computationally efficient",
+                    "Common measures: Correlation, Information Gain, Chi-Square",
+                    "Doesn't consider feature interactions"
+                ]
             },
             "4": {
-                "title": "4. Information Gain",
-                "content": "Information Gain is a filter-based feature selection metric commonly used for classification tasks. It measures how much 'information' a feature provides about the target class. It is based on the concept of Entropy from information theory.\n\nExplanation:\n\n- Entropy: Measures the impurity or uncertainty in a dataset. A high entropy means the data is mixed (50% class A, 50% class B), while low entropy means the data is pure (100% class A).\n\n- Information Gain: It is the reduction in entropy achieved by partitioning the data according to a feature. A feature that perfectly separates the classes will have a high Information Gain.\n\nMathematically, IG(T, A) = Entropy(T) - Entropy(T|A), where T is the target and A is the feature.\n\nFeatures with high Information Gain are considered more important for predicting the target variable, as they bring the most order to the data."
+                "title": "Information Gain",
+                "subtitle": "Entropy-based feature importance",
+                "content": "Information Gain is a filter-based feature selection metric commonly used for classification tasks. It measures how much 'information' a feature provides about the target class. It is based on the concept of Entropy from information theory.",
+                "subPoints": [
+                    "Entropy: Measures the impurity or uncertainty in a dataset. A high entropy means the data is mixed (50% class A, 50% class B), while low entropy means the data is pure (100% class A).",
+                    "Information Gain: It is the reduction in entropy achieved by partitioning the data according to a feature. A feature that perfectly separates the classes will have a high Information Gain."
+                ],
+                "conclusion": "Features with high Information Gain are considered more important for predicting the target variable, as they bring the most order to the data.",
+                "keyPoints": [
+                    "Measures reduction in entropy",
+                    "High Information Gain means better feature",
+                    "Based on information theory",
+                    "Commonly used for classification tasks"
+                ]
             },
             "5": {
-                "title": "5. Chi-Square Test",
-                "content": "The Chi-Square (χ²) test is a statistical filter method used for feature selection in categorical datasets. It assesses the independence between a feature and the target class. The fundamental hypothesis is that the feature and the target are independent.\n\nProcess:\n\n- For each categorical feature, a contingency table is built against the target class.\n\n- The Chi-Square statistic is calculated, which measures the divergence of the observed frequencies from the frequencies expected if the feature and target were independent.\n\n- A high Chi-Square value indicates that the observed and expected counts are significantly different, leading to the rejection of the null hypothesis. This means the feature is dependent on the target and is thus relevant for classification.\n\nIt is a powerful method for selecting categorical features but is not suitable for continuous data unless they are first discretized (binned)."
+                "title": "Chi-Square Test",
+                "subtitle": "Statistical test for categorical features",
+                "content": "The Chi-Square (χ²) test is a statistical filter method used for feature selection in categorical datasets. It assesses the independence between a feature and the target class. The fundamental hypothesis is that the feature and the target are independent.",
+                "subPoints": [
+                    "For each categorical feature, a contingency table is built against the target class.",
+                    "The Chi-Square statistic is calculated, which measures the divergence of the observed frequencies from the frequencies expected if the feature and target were independent.",
+                    "A high Chi-Square value indicates that the observed and expected counts are significantly different, leading to the rejection of the null hypothesis."
+                ],
+                "conclusion": "This means the feature is dependent on the target and is thus relevant for classification. It is a powerful method for selecting categorical features but is not suitable for continuous data unless they are first discretized (binned).",
+                "keyPoints": [
+                    "Tests independence between feature and target",
+                    "High Chi-Square value means feature is relevant",
+                    "Works with categorical data",
+                    "Requires discretization for continuous data"
+                ]
             },
             "6": {
-                "title": "6. Fisher Score (and the Fisher Bone Method)",
-                "content": "The Fisher Score is a filter-based feature selection technique that selects features which best separate the data points from different classes. It does this by maximizing the ratio of the between-class variance to the within-class variance for each feature.\n\nIntuition:\n\nA good feature should have:\n\n- High between-class variance: The means of different classes should be far apart.\n\n- Low within-class variance: The data points within the same class should be close to each other.\n\nCalculation: For a feature, the Fisher Score is calculated as: (SB / SW), where SB is between-class scatter and SW is within-class scatter.\n\nA higher Fisher Score indicates a feature with better discriminatory power. The term 'Fisher Bone Method' is likely a mishearing or misspelling of the Fisher-Rao method or simply refers to the core ('bone') principle of the Fisher Score."
+                "title": "Fisher Score",
+                "subtitle": "Feature selection based on variance",
+                "content": "The Fisher Score is a filter-based feature selection technique that selects features which best separate the data points from different classes. It does this by maximizing the ratio of the between-class variance to the within-class variance for each feature.",
+                "subPoints": [
+                    "A good feature should have high between-class variance: The means of different classes should be far apart.",
+                    "A good feature should have low within-class variance: The data points within the same class should be close to each other."
+                ],
+                "conclusion": "A higher Fisher Score indicates a feature with better discriminatory power. The term 'Fisher Bone Method' is likely a mishearing or misspelling of the Fisher-Rao method or simply refers to the core ('bone') principle of the Fisher Score.",
+                "keyPoints": [
+                    "Maximizes between-class to within-class variance ratio",
+                    "Higher score means better feature discrimination",
+                    "Good for class separation",
+                    "Also known as Fisher's discriminant ratio"
+                ]
             },
             "7": {
-                "title": "7. Handling Missing Values",
-                "content": "Handling missing values is a critical step in data preprocessing, as most machine learning algorithms cannot work with incomplete data. The strategy depends on the nature and amount of the missing data.\n\nCommon Techniques:\n\n- Deletion:\n  - Listwise Deletion: Removing entire rows with any missing value. Suitable only if the data is large and the missing values are random.\n\n- Imputation (Filling in values):\n  - For Numerical Data: Use mean, median, or mode.\n  - For Categorical Data: Use the mode (most frequent category).\n  - Advanced Methods: Use algorithms like K-Nearest Neighbors (KNN) or regression models to predict and fill missing values based on other features.\n\n- Flagging: Creating an additional binary feature to indicate whether the value was missing, which can sometimes be informative for the model.\n\nChoosing the right method is essential to prevent bias and maintain the integrity of the dataset."
+                "title": "Handling Missing Values",
+                "subtitle": "Dealing with incomplete data",
+                "content": "Handling missing values is a critical step in data preprocessing, as most machine learning algorithms cannot work with incomplete data. The strategy depends on the nature and amount of the missing data.",
+                "subPoints": [
+                    "Deletion: Removing entire rows with any missing value. Suitable only if the data is large and the missing values are random.",
+                    "Imputation (Filling in values): For Numerical Data: Use mean, median, or mode. For Categorical Data: Use the mode (most frequent category).",
+                    "Advanced Methods: Use algorithms like K-Nearest Neighbors (KNN) or regression models to predict and fill missing values based on other features.",
+                    "Flagging: Creating an additional binary feature to indicate whether the value was missing, which can sometimes be informative for the model."
+                ],
+                "conclusion": "Choosing the right method is essential to prevent bias and maintain the integrity of the dataset.",
+                "keyPoints": [
+                    "Critical preprocessing step",
+                    "Methods: deletion, imputation, flagging",
+                    "Imputation uses mean, median, mode, or algorithms",
+                    "Choosing right method prevents bias"
+                ]
             },
             "8": {
-                "title": "8. Wrapper Method",
-                "content": "Wrapper methods are a category of feature selection that uses the performance of a specific machine learning model to evaluate the quality of a feature subset. They 'wrap' around a predictive model and use its performance as the objective function.\n\nCommon Approaches:\n\n- Forward Selection: Starts with no features and iteratively adds the feature that most improves the model's performance.\n\n- Backward Elimination: Starts with all features and iteratively removes the least significant feature.\n\n- Recursive Feature Elimination (RFE): A popular form of backward elimination that recursively fits the model and removes the weakest features.\n\nAdvantage: They are very effective and can capture feature interactions.\n\nDisadvantage: They are computationally very expensive and prone to overfitting, especially with large feature sets, as they require training a model for every candidate feature subset."
+                "title": "Wrapper Method",
+                "subtitle": "Model-based feature selection",
+                "content": "Wrapper methods are a category of feature selection that uses the performance of a specific machine learning model to evaluate the quality of a feature subset. They 'wrap' around a predictive model and use its performance as the objective function.",
+                "subPoints": [
+                    "Forward Selection: Starts with no features and iteratively adds the feature that most improves the model's performance.",
+                    "Backward Elimination: Starts with all features and iteratively removes the least significant feature.",
+                    "Recursive Feature Elimination (RFE): A popular form of backward elimination that recursively fits the model and removes the weakest features."
+                ],
+                "conclusion": "Advantage: They are very effective and can capture feature interactions. Disadvantage: They are computationally very expensive and prone to overfitting, especially with large feature sets, as they require training a model for every candidate feature subset.",
+                "keyPoints": [
+                    "Uses model performance to evaluate features",
+                    "Includes forward selection and backward elimination",
+                    "Captures feature interactions",
+                    "Computationally expensive"
+                ]
             },
             "9": {
-                "title": "9. Exhaustive Feature Selection",
-                "content": "Exhaustive Feature Selection is a wrapper method that aims to find the best subset of features by evaluating all possible feature combinations. It trains and tests a machine learning model for every single possible subset of features.\n\nProcess:\nFor a dataset with n features, it evaluates 2^n - 1 possible subsets (excluding the empty set). The subset that results in the highest model performance (e.g., accuracy) is selected as the optimal feature set.\n\nAdvantage: It guarantees finding the best possible subset of features for a given model and performance metric.\n\nDisadvantage: It is computationally prohibitive and infeasible for even a moderately large number of features (e.g., 20 features would require 1,048,575 model evaluations), making it impractical for most real-world scenarios."
+                "title": "Exhaustive Feature Selection",
+                "subtitle": "Evaluating all possible feature combinations",
+                "content": "Exhaustive Feature Selection is a wrapper method that aims to find the best subset of features by evaluating all possible feature combinations. It trains and tests a machine learning model for every single possible subset of features.",
+                "subPoints": [
+                    "For a dataset with n features, it evaluates 2^n - 1 possible subsets (excluding the empty set).",
+                    "The subset that results in the highest model performance (e.g., accuracy) is selected as the optimal feature set."
+                ],
+                "conclusion": "Advantage: It guarantees finding the best possible subset of features for a given model and performance metric. Disadvantage: It is computationally prohibitive and infeasible for even a moderately large number of features (e.g., 20 features would require 1,048,575 model evaluations), making it impractical for most real-world scenarios.",
+                "keyPoints": [
+                    "Evaluates all possible feature subsets",
+                    "Guarantees finding optimal subset",
+                    "Computationally prohibitive for large feature sets",
+                    "Impractical for real-world applications"
+                ]
             },
             "10": {
-                "title": "10. Recursive Feature Elimination (RFE)",
-                "content": "Recursive Feature Elimination (RFE) is a popular and efficient wrapper-style feature selection method. It works by recursively removing the least important features and building a model on the remaining features.\n\nSteps:\n\n1. Train a model (like a linear model or SVM that can provide feature importance) on the entire set of features.\n\n2. Rank the features based on their importance (e.g., coefficients in linear models).\n\n3. Remove the least important feature(s) from the current set.\n\n4. Repeat steps 1-3 with the reduced feature set until the desired number of features is reached.\n\nRFE is computationally more feasible than exhaustive search and effectively finds a high-performing subset of features. It is widely used with models like Support Vector Machines (SVM) and Logistic Regression."
+                "title": "Recursive Feature Elimination (RFE)",
+                "subtitle": "Efficient wrapper feature selection",
+                "content": "Recursive Feature Elimination (RFE) is a popular and efficient wrapper-style feature selection method. It works by recursively removing the least important features and building a model on the remaining features.",
+                "subPoints": [
+                    "Train a model (like a linear model or SVM that can provide feature importance) on the entire set of features.",
+                    "Rank the features based on their importance (e.g., coefficients in linear models).",
+                    "Remove the least important feature(s) from the current set.",
+                    "Repeat the process with the reduced feature set until the desired number of features is reached."
+                ],
+                "conclusion": "RFE is computationally more feasible than exhaustive search and effectively finds a high-performing subset of features. It is widely used with models like Support Vector Machines (SVM) and Logistic Regression.",
+                "keyPoints": [
+                    "Recursively removes least important features",
+                    "More efficient than exhaustive search",
+                    "Widely used with linear models and SVM",
+                    "Finds high-performing feature subsets"
+                ]
             },
             "11": {
-                "title": "11. Project: Titanic Dataset Feature Engineering",
-                "content": "In the Titanic dataset, effective feature engineering can significantly boost model performance by creating more meaningful predictors from raw data.\n\n1. Family and Sibling Features:\nThe raw features 'SibSp' (siblings/spouse) and 'Parch' (parents/children) can be combined.\n\n- FamilySize = SibSp + Parch + 1 (including the passenger themselves). This captures the total family size on board.\n\n- IsAlone: A binary feature (1 if FamilySize == 1, else 0). This can be a strong indicator, as solo travelers might have had a different survival rate.\n\n2. Ticket Price & Class Features:\nWhile 'Pclass' (ticket class) is a direct indicator of socio-economic status, combining it with 'Fare' (ticket price) can reveal inconsistencies or more nuanced information.\n\n- Fare per Person = Fare / FamilySize: This normalizes the fare, as a single ticket might have been purchased for an entire family. A high fare per person in a lower class might be a significant indicator.\n\n- Analyzing Discrepancies: A passenger in Pclass=1 with a very low fare, or in Pclass=3 with a very high fare, could be engineered into a feature flag, potentially indicating data errors or special circumstances.\n\nThese engineered features help the model capture complex relationships that the original raw features alone might miss."
+                "title": "Titanic Dataset Feature Engineering",
+                "subtitle": "Practical application example",
+                "content": "In the Titanic dataset, effective feature engineering can significantly boost model performance by creating more meaningful predictors from raw data.",
+                "subPoints": [
+                    "Family and Sibling Features: The raw features 'SibSp' (siblings/spouse) and 'Parch' (parents/children) can be combined. FamilySize = SibSp + Parch + 1 (including the passenger themselves). This captures the total family size on board. IsAlone: A binary feature (1 if FamilySize == 1, else 0). This can be a strong indicator, as solo travelers might have had a different survival rate.",
+                    "Ticket Price & Class Features: While 'Pclass' (ticket class) is a direct indicator of socio-economic status, combining it with 'Fare' (ticket price) can reveal inconsistencies or more nuanced information. Fare per Person = Fare / FamilySize: This normalizes the fare, as a single ticket might have been purchased for an entire family. A high fare per person in a lower class might be a significant indicator."
+                ],
+                "conclusion": "These engineered features help the model capture complex relationships that the original raw features alone might miss.",
+                "keyPoints": [
+                    "FamilySize = SibSp + Parch + 1",
+                    "IsAlone binary feature for solo travelers",
+                    "Fare per Person normalizes ticket price",
+                    "Engineered features capture complex relationships"
+                ]
             },
             "12": {
-                "title": "12. Encoding Categorical Variables",
-                "content": "Most machine learning algorithms require numerical input. Encoding is the process of converting categorical variables (text or categories) into a numerical format.\n\nCommon Techniques:\n\n- Label Encoding: Assigns a unique integer to each category (e.g., Red=0, Green=1, Blue=2). Suitable for ordinal data (where order matters, like 'Low', 'Medium', 'High').\n\n- One-Hot Encoding: Creates new binary columns for each category. A value of 1 indicates the presence of that category. This is preferred for nominal data (where no order exists, like 'France', 'Germany', 'Spain') as it avoids imposing a false ordinal relationship.\n\n- Target Encoding: Replaces a category with the mean of the target variable for that category. Can be powerful but is prone to overfitting.\n\nChoosing the correct encoding method is vital to prevent the model from learning incorrect relationships from the data."
+                "title": "Encoding Categorical Variables",
+                "subtitle": "Converting categories to numbers",
+                "content": "Most machine learning algorithms require numerical input. Encoding is the process of converting categorical variables (text or categories) into a numerical format.",
+                "subPoints": [
+                    "Label Encoding: Assigns a unique integer to each category (e.g., Red=0, Green=1, Blue=2). Suitable for ordinal data (where order matters, like 'Low', 'Medium', 'High').",
+                    "One-Hot Encoding: Creates new binary columns for each category. A value of 1 indicates the presence of that category. This is preferred for nominal data (where no order exists, like 'France', 'Germany', 'Spain') as it avoids imposing a false ordinal relationship.",
+                    "Target Encoding: Replaces a category with the mean of the target variable for that category. Can be powerful but is prone to overfitting."
+                ],
+                "conclusion": "Choosing the correct encoding method is vital to prevent the model from learning incorrect relationships from the data.",
+                "keyPoints": [
+                    "Label Encoding for ordinal data",
+                    "One-Hot Encoding for nominal data",
+                    "Target Encoding uses target variable means",
+                    "Correct encoding prevents incorrect relationships"
+                ]
             },
             "13": {
-                "title": "13. Embedding",
-                "content": "Embedding is an advanced technique for representing high-dimensional categorical data (like words or user IDs) as low-dimensional, dense vectors of real numbers. Unlike one-hot encoding which creates sparse, high-dimensional vectors, embeddings are learned by the model and capture semantic meaning.\n\nKey Properties:\n\n- Dimensionality Reduction: They represent categories in a much lower-dimensional space.\n\n- Semantic Capture: Similar categories have similar vector representations. For example, in word embeddings, the vectors for 'king' and 'queen' are closer to each other than to the vector for 'apple'.\n\n- Learned Representation: The values of the embedding vectors are parameters that are learned during the model training process.\n\nEmbeddings are a cornerstone of modern NLP (e.g., Word2Vec) and recommendation systems, allowing models to understand complex relationships between categorical entities."
+                "title": "Embedding",
+                "subtitle": "Advanced categorical representation",
+                "content": "Embedding is an advanced technique for representing high-dimensional categorical data (like words or user IDs) as low-dimensional, dense vectors of real numbers. Unlike one-hot encoding which creates sparse, high-dimensional vectors, embeddings are learned by the model and capture semantic meaning.",
+                "subPoints": [
+                    "Dimensionality Reduction: They represent categories in a much lower-dimensional space.",
+                    "Semantic Capture: Similar categories have similar vector representations. For example, in word embeddings, the vectors for 'king' and 'queen' are closer to each other than to the vector for 'apple'.",
+                    "Learned Representation: The values of the embedding vectors are parameters that are learned during the model training process."
+                ],
+                "conclusion": "Embeddings are a cornerstone of modern NLP (e.g., Word2Vec) and recommendation systems, allowing models to understand complex relationships between categorical entities.",
+                "keyPoints": [
+                    "Represents categories as dense vectors",
+                    "Captures semantic relationships",
+                    "Learned during model training",
+                    "Used in NLP and recommendation systems"
+                ]
             },
             "14": {
-                "title": "14. Dimensionality Reduction",
-                "content": "Dimensionality reduction is the process of reducing the number of random variables (features) under consideration by obtaining a set of principal variables. It helps in combating the 'curse of dimensionality,' which can lead to overfitting and high computational costs.\n\nIt serves two main purposes:\n\n- Visualization: Projecting high-dimensional data onto 2D or 3D planes for human interpretation.\n\n- Feature Extraction: Creating a new, smaller set of features that captures most of the important information from the original data.\n\nThe two primary techniques are:\n\n- Principal Component Analysis (PCA): An unsupervised method that finds directions of maximum variance.\n\n- Linear Discriminant Analysis (LDA): A supervised method that finds directions that maximize the separation between classes."
+                "title": "Dimensionality Reduction",
+                "subtitle": "Reducing feature space",
+                "content": "Dimensionality reduction is the process of reducing the number of random variables (features) under consideration by obtaining a set of principal variables. It helps in combating the 'curse of dimensionality,' which can lead to overfitting and high computational costs.",
+                "subPoints": [
+                    "Visualization: Projecting high-dimensional data onto 2D or 3D planes for human interpretation.",
+                    "Feature Extraction: Creating a new, smaller set of features that captures most of the important information from the original data."
+                ],
+                "conclusion": "The two primary techniques are: Principal Component Analysis (PCA): An unsupervised method that finds directions of maximum variance. Linear Discriminant Analysis (LDA): A supervised method that finds directions that maximize the separation between classes.",
+                "keyPoints": [
+                    "Reduces number of features",
+                    "Combats curse of dimensionality",
+                    "Used for visualization and feature extraction",
+                    "Main techniques: PCA and LDA"
+                ]
             },
             "15": {
-                "title": "15. Principal Component Analysis (PCA)",
-                "content": "Principal Component Analysis (PCA) is an unsupervised, linear dimensionality reduction technique. Its goal is to transform the original features into a new set of uncorrelated features called Principal Components, which are ordered by the amount of variance they capture from the data.\n\nHow it works:\n\n1. Standardize the data (mean=0, variance=1).\n\n2. Compute the covariance matrix to understand feature relationships.\n\n3. Calculate the eigenvectors (principal components) and eigenvalues of this matrix. The eigenvectors define the directions of the new feature space, and the eigenvalues indicate the magnitude of variance along these directions.\n\n4. Select the top-k eigenvectors with the highest eigenvalues to form the new, lower-dimensional dataset.\n\nPCA is excellent for noise reduction and visualization but does not consider class labels, so it is not always optimal for classification tasks."
+                "title": "Principal Component Analysis (PCA)",
+                "subtitle": "Unsupervised dimensionality reduction",
+                "content": "Principal Component Analysis (PCA) is an unsupervised, linear dimensionality reduction technique. Its goal is to transform the original features into a new set of uncorrelated features called Principal Components, which are ordered by the amount of variance they capture from the data.",
+                "subPoints": [
+                    "Standardize the data (mean=0, variance=1).",
+                    "Compute the covariance matrix to understand feature relationships.",
+                    "Calculate the eigenvectors (principal components) and eigenvalues of this matrix. The eigenvectors define the directions of the new feature space, and the eigenvalues indicate the magnitude of variance along these directions.",
+                    "Select the top-k eigenvectors with the highest eigenvalues to form the new, lower-dimensional dataset."
+                ],
+                "conclusion": "PCA is excellent for noise reduction and visualization but does not consider class labels, so it is not always optimal for classification tasks.",
+                "keyPoints": [
+                    "Unsupervised dimensionality reduction",
+                    "Creates uncorrelated principal components",
+                    "Orders components by variance explained",
+                    "Good for visualization and noise reduction"
+                ]
             },
             "16": {
-                "title": "16. Linear Discriminant Analysis (LDA)",
-                "content": "Linear Discriminant Analysis (LDA) is a supervised dimensionality reduction technique primarily used for classification tasks. Unlike PCA, which focuses on maximizing variance, LDA finds a feature subspace that maximizes the separation between multiple classes.\n\nObjective:\nLDA seeks to project the data onto a lower-dimensional space that achieves:\n\n- Maximum between-class separation: The distance between the means of different classes should be as large as possible.\n\n- Minimum within-class variance: The data points of the same class should be as close together as possible.\n\nThis results in a projection where classes are as distinct and compact as possible, which often leads to better classification performance than PCA when the class labels are known. LDA is both a dimensionality reducer and a classifier."
+                "title": "Linear Discriminant Analysis (LDA)",
+                "subtitle": "Supervised dimensionality reduction",
+                "content": "Linear Discriminant Analysis (LDA) is a supervised dimensionality reduction technique primarily used for classification tasks. Unlike PCA, which focuses on maximizing variance, LDA finds a feature subspace that maximizes the separation between multiple classes.",
+                "subPoints": [
+                    "Maximum between-class separation: The distance between the means of different classes should be as large as possible.",
+                    "Minimum within-class variance: The data points of the same class should be as close together as possible."
+                ],
+                "conclusion": "This results in a projection where classes are as distinct and compact as possible, which often leads to better classification performance than PCA when the class labels are known. LDA is both a dimensionality reducer and a classifier.",
+                "keyPoints": [
+                    "Supervised dimensionality reduction",
+                    "Maximizes between-class separation",
+                    "Minimizes within-class variance",
+                    "Can also function as a classifier"
+                ]
             },
             "17": {
-                "title": "17. Bagging and Boosting",
-                "content": "Bagging and Boosting are two powerful ensemble learning techniques that combine multiple weak learners (e.g., decision trees) to create a single strong learner.\n\nBagging (Bootstrap Aggregating):\n\n- Concept: Trains multiple models in parallel on different random subsets of the training data (sampled with replacement).\n\n- Goal: To reduce variance and prevent overfitting.\n\n- Combining Predictions: For classification, it uses a majority vote; for regression, it uses an average.\n\n- Prime Example: Random Forest, which is an ensemble of decision trees trained with bagging.\n\nBoosting:\n\n- Concept: Trains models sequentially, where each new model focuses on correcting the errors made by the previous ones.\n\n- Goal: To reduce bias and create a strong learner from a sequence of weak ones.\n\n- Combining Predictions: Models are weighted based on their performance; more accurate models have a higher say.\n\n- Prime Examples: AdaBoost, Gradient Boosting Machines (GBM), and XGBoost.\n\nIn summary, Bagging reduces variance, while Boosting reduces bias."
+                "title": "Bagging and Boosting",
+                "subtitle": "Ensemble learning techniques",
+                "content": "Bagging and Boosting are two powerful ensemble learning techniques that combine multiple weak learners (e.g., decision trees) to create a single strong learner.",
+                "subPoints": [
+                    "Bagging (Bootstrap Aggregating): Trains multiple models in parallel on different random subsets of the training data (sampled with replacement). Goal: To reduce variance and prevent overfitting. Combining Predictions: For classification, it uses a majority vote; for regression, it uses an average. Prime Example: Random Forest.",
+                    "Boosting: Trains models sequentially, where each new model focuses on correcting the errors made by the previous ones. Goal: To reduce bias and create a strong learner from a sequence of weak ones. Combining Predictions: Models are weighted based on their performance; more accurate models have a higher say. Prime Examples: AdaBoost, Gradient Boosting Machines (GBM), and XGBoost."
+                ],
+                "conclusion": "In summary, Bagging reduces variance, while Boosting reduces bias.",
+                "keyPoints": [
+                    "Bagging: parallel training, reduces variance",
+                    "Boosting: sequential training, reduces bias",
+                    "Bagging example: Random Forest",
+                    "Boosting examples: AdaBoost, GBM, XGBoost"
+                ]
             }
         };
 
         // DOM elements
-        const questionSelect = document.getElementById('question-select');
-        const answerTitle = document.getElementById('answer-title');
+        const topicSelect = document.getElementById('topic-select');
+        const topicTitle = document.getElementById('topic-title');
+        const topicSubtitle = document.getElementById('topic-subtitle');
         const answerContent = document.getElementById('answer-content');
+        const keyPointsSection = document.getElementById('key-points');
+        const keyPointsList = document.getElementById('key-points-list');
+        const bookmarksSection = document.getElementById('bookmarks-section');
+        const bookmarksList = document.getElementById('bookmarks-list');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
         const speakBtn = document.getElementById('speak-btn');
+        const pauseBtn = document.getElementById('pause-btn');
+        const resumeBtn = document.getElementById('resume-btn');
         const stopBtn = document.getElementById('stop-btn');
+        const bookmarkBtn = document.getElementById('bookmark-btn');
         const status = document.getElementById('status');
+        const progressFill = document.getElementById('progress-fill');
+        const progressText = document.getElementById('progress-text');
 
-        // Speech synthesis
+        // State variables
+        let currentTopic = null;
+        let completedTopics = new Set();
+        let bookmarkedTopics = new Set();
         let speech = null;
+        let hasSpokenCurrentTopic = false;
+        let isPaused = false;
 
-        // Event listener for dropdown change
-        questionSelect.addEventListener('change', function() {
+        // Initialize the application
+        function init() {
+            updateProgress();
+            updateBookmarksSection();
+            
+            // Load state from localStorage if available
+            loadState();
+            
+            // Set up event listeners
+            topicSelect.addEventListener('change', handleTopicSelect);
+            prevBtn.addEventListener('click', goToPreviousTopic);
+            nextBtn.addEventListener('click', goToNextTopic);
+            speakBtn.addEventListener('click', speakContent);
+            pauseBtn.addEventListener('click', pauseSpeaking);
+            resumeBtn.addEventListener('click', resumeSpeaking);
+            stopBtn.addEventListener('click', stopSpeaking);
+            bookmarkBtn.addEventListener('click', toggleBookmark);
+            
+            // Show welcome message
+            showWelcomeMessage();
+        }
+
+        // Handle topic selection from dropdown
+        function handleTopicSelect() {
             const selectedValue = this.value;
-            
-            if (selectedValue && data[selectedValue]) {
-                answerTitle.textContent = data[selectedValue].title;
-                answerContent.textContent = data[selectedValue].content;
-                status.className = 'status';
-            } else {
-                answerTitle.textContent = "Please select a topic to view its explanation";
-                answerContent.textContent = "";
-                status.className = 'status';
+            if (selectedValue) {
+                selectTopic(selectedValue);
             }
-        });
+        }
 
-        // Event listener for speak button
-        speakBtn.addEventListener('click', function() {
-            const selectedValue = questionSelect.value;
+        // Select a topic to display
+        function selectTopic(id) {
+            // Reset spoken flag for new topic
+            hasSpokenCurrentTopic = false;
             
-            if (!selectedValue || !data[selectedValue]) {
+            // Update dropdown
+            topicSelect.value = id;
+            
+            // Update content
+            currentTopic = id;
+            const topic = data[id];
+            topicTitle.textContent = `${id}. ${topic.title}`;
+            topicSubtitle.textContent = topic.subtitle;
+            
+            // Format content with subpoints
+            let contentHTML = `<div class="answer-content">${topic.content}</div>`;
+            
+            if (topic.subPoints && topic.subPoints.length > 0) {
+                contentHTML += `<div class="sub-points"><ul>`;
+                topic.subPoints.forEach(point => {
+                    contentHTML += `<li>${point}</li>`;
+                });
+                contentHTML += `</ul></div>`;
+            }
+            
+            if (topic.conclusion) {
+                contentHTML += `<div class="answer-content" style="margin-top: 15px;"><strong>${topic.conclusion}</strong></div>`;
+            }
+            
+            answerContent.innerHTML = contentHTML;
+            
+            // Show key points
+            if (topic.keyPoints && topic.keyPoints.length > 0) {
+                keyPointsList.innerHTML = '';
+                topic.keyPoints.forEach(point => {
+                    const li = document.createElement('li');
+                    li.textContent = point;
+                    keyPointsList.appendChild(li);
+                });
+                keyPointsSection.style.display = 'block';
+            } else {
+                keyPointsSection.style.display = 'none';
+            }
+            
+            // Update navigation buttons
+            updateNavigationButtons();
+            
+            // Update bookmark button
+            updateBookmarkButton();
+            
+            // Reset speech controls
+            resetSpeechControls();
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Show welcome message
+        function showWelcomeMessage() {
+            topicTitle.textContent = "Welcome to Feature Engineering";
+            topicSubtitle.textContent = "Select a topic to begin learning";
+            answerContent.innerHTML = `
+                <div class="answer-content">
+                    <p>Welcome to the Interactive Feature Engineering Knowledge Base! This resource covers essential concepts in feature engineering and selection for machine learning.</p>
+                    <p>Use the dropdown menu to navigate between topics, or use the navigation buttons to move sequentially through the content. Each topic includes:</p>
+                    <ul>
+                        <li>Detailed explanation of the concept</li>
+                        <li>Key points for quick review</li>
+                        <li>Text-to-speech functionality with pause/resume</li>
+                        <li>Bookmarking for important topics</li>
+                    </ul>
+                    <p>Track your progress as you complete each topic. Let's get started!</p>
+                </div>
+            `;
+            keyPointsSection.style.display = 'none';
+            updateNavigationButtons();
+            bookmarkBtn.disabled = true;
+            resetSpeechControls();
+        }
+
+        // Update navigation buttons state
+        function updateNavigationButtons() {
+            if (!currentTopic) {
+                prevBtn.disabled = true;
+                nextBtn.disabled = true;
+                return;
+            }
+            
+            const topicIds = Object.keys(data).map(id => parseInt(id));
+            const currentIndex = topicIds.indexOf(parseInt(currentTopic));
+            
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === topicIds.length - 1;
+        }
+
+        // Go to previous topic
+        function goToPreviousTopic() {
+            if (!currentTopic) return;
+            
+            const topicIds = Object.keys(data).map(id => parseInt(id));
+            const currentIndex = topicIds.indexOf(parseInt(currentTopic));
+            
+            if (currentIndex > 0) {
+                selectTopic(topicIds[currentIndex - 1]);
+            }
+        }
+
+        // Go to next topic
+        function goToNextTopic() {
+            if (!currentTopic) return;
+            
+            const topicIds = Object.keys(data).map(id => parseInt(id));
+            const currentIndex = topicIds.indexOf(parseInt(currentTopic));
+            
+            if (currentIndex < topicIds.length - 1) {
+                selectTopic(topicIds[currentIndex + 1]);
+            }
+        }
+
+        // Speak the content using text-to-speech
+        function speakContent() {
+            if (!currentTopic) {
                 status.textContent = "Please select a topic first";
                 status.className = 'status no-answer';
                 return;
@@ -182,9 +624,22 @@
                 window.speechSynthesis.cancel();
             }
             
+            const topic = data[currentTopic];
+            
+            // Build text to speak
+            let textToSpeak = `${topic.title}. ${topic.subtitle}. ${topic.content}.`;
+            
+            if (topic.subPoints && topic.subPoints.length > 0) {
+                textToSpeak += " Key points: " + topic.subPoints.join(". ") + ".";
+            }
+            
+            if (topic.conclusion) {
+                textToSpeak += " " + topic.conclusion;
+            }
+            
             // Create new speech
             speech = new SpeechSynthesisUtterance();
-            speech.text = data[selectedValue].title + ". " + data[selectedValue].content;
+            speech.text = textToSpeak;
             speech.rate = 0.9;
             speech.pitch = 1;
             speech.volume = 1;
@@ -193,24 +648,181 @@
             status.textContent = "Speaking...";
             status.className = 'status speaking';
             
+            // Update speech controls
+            speakBtn.style.display = 'none';
+            pauseBtn.style.display = 'flex';
+            stopBtn.style.display = 'flex';
+            isPaused = false;
+            
             // Handle speech end
             speech.onend = function() {
                 status.textContent = "Speech completed";
-                status.className = 'status';
+                status.className = 'status completed';
+                
+                // Reset speech controls
+                resetSpeechControls();
+                
+                // Mark topic as completed if not already
+                if (!hasSpokenCurrentTopic) {
+                    hasSpokenCurrentTopic = true;
+                    if (!completedTopics.has(currentTopic)) {
+                        completedTopics.add(currentTopic);
+                        updateProgress();
+                        saveState();
+                    }
+                }
+                
+                setTimeout(() => {
+                    status.className = 'status';
+                }, 3000);
             };
             
             // Start speaking
             window.speechSynthesis.speak(speech);
-        });
+        }
 
-        // Event listener for stop button
-        stopBtn.addEventListener('click', function() {
+        // Pause speaking
+        function pauseSpeaking() {
+            if (window.speechSynthesis.speaking && !isPaused) {
+                window.speechSynthesis.pause();
+                status.textContent = "Speech paused";
+                status.className = 'status paused';
+                pauseBtn.style.display = 'none';
+                resumeBtn.style.display = 'flex';
+                isPaused = true;
+            }
+        }
+
+        // Resume speaking
+        function resumeSpeaking() {
+            if (window.speechSynthesis.speaking && isPaused) {
+                window.speechSynthesis.resume();
+                status.textContent = "Speaking...";
+                status.className = 'status speaking';
+                resumeBtn.style.display = 'none';
+                pauseBtn.style.display = 'flex';
+                isPaused = false;
+            }
+        }
+
+        // Stop speaking
+        function stopSpeaking() {
             if (window.speechSynthesis.speaking) {
                 window.speechSynthesis.cancel();
                 status.textContent = "Speech stopped";
                 status.className = 'status';
+                resetSpeechControls();
             }
-        });
+        }
+
+        // Reset speech controls to default state
+        function resetSpeechControls() {
+            speakBtn.style.display = 'flex';
+            pauseBtn.style.display = 'none';
+            resumeBtn.style.display = 'none';
+            stopBtn.style.display = 'flex';
+            isPaused = false;
+        }
+
+        // Toggle bookmark for current topic
+        function toggleBookmark() {
+            if (!currentTopic) return;
+            
+            if (bookmarkedTopics.has(currentTopic)) {
+                bookmarkedTopics.delete(currentTopic);
+                status.textContent = "Bookmark removed";
+                status.className = 'status';
+            } else {
+                bookmarkedTopics.add(currentTopic);
+                status.textContent = "Topic bookmarked!";
+                status.className = 'status bookmark-notification';
+                setTimeout(() => {
+                    status.className = 'status';
+                }, 3000);
+            }
+            
+            updateBookmarkButton();
+            updateBookmarksSection();
+            saveState();
+        }
+
+        // Update bookmark button appearance
+        function updateBookmarkButton() {
+            if (!currentTopic) {
+                bookmarkBtn.disabled = true;
+                return;
+            }
+            
+            bookmarkBtn.disabled = false;
+            if (bookmarkedTopics.has(currentTopic)) {
+                bookmarkBtn.classList.add('bookmarked');
+                bookmarkBtn.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/>
+                    </svg>
+                    Bookmarked
+                `;
+            } else {
+                bookmarkBtn.classList.remove('bookmarked');
+                bookmarkBtn.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+                    </svg>
+                    Bookmark
+                `;
+            }
+        }
+
+        // Update bookmarks section
+        function updateBookmarksSection() {
+            if (bookmarkedTopics.size > 0) {
+                bookmarksList.innerHTML = '';
+                bookmarkedTopics.forEach(topicId => {
+                    const topic = data[topicId];
+                    const bookmarkItem = document.createElement('div');
+                    bookmarkItem.className = 'bookmark-item';
+                    bookmarkItem.textContent = `${topicId}. ${topic.title}`;
+                    bookmarkItem.addEventListener('click', () => selectTopic(topicId));
+                    bookmarksList.appendChild(bookmarkItem);
+                });
+                bookmarksSection.style.display = 'block';
+            } else {
+                bookmarksSection.style.display = 'none';
+            }
+        }
+
+        // Update progress bar and text
+        function updateProgress() {
+            const totalTopics = Object.keys(data).length;
+            const completedCount = completedTopics.size;
+            const percentage = Math.min((completedCount / totalTopics) * 100, 100);
+            
+            progressFill.style.width = `${percentage}%`;
+            progressText.textContent = `${completedCount}/${totalTopics} topics completed`;
+        }
+
+        // Save application state to localStorage
+        function saveState() {
+            const state = {
+                completedTopics: Array.from(completedTopics),
+                bookmarkedTopics: Array.from(bookmarkedTopics)
+            };
+            localStorage.setItem('featureEngineeringState', JSON.stringify(state));
+        }
+
+        // Load application state from localStorage
+        function loadState() {
+            const savedState = localStorage.getItem('featureEngineeringState');
+            if (savedState) {
+                const state = JSON.parse(savedState);
+                completedTopics = new Set(state.completedTopics || []);
+                bookmarkedTopics = new Set(state.bookmarkedTopics || []);
+                updateProgress();
+            }
+        }
+
+        // Initialize the application when the page loads
+        window.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
 </html>
