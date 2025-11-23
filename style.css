@@ -1,0 +1,174 @@
+<style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 25px;
+        }
+        
+        .selection-area {
+            margin-bottom: 30px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: #f9f9f9;
+            transition: all 0.3s;
+        }
+        
+        select:focus {
+            border-color: #4b6cb7;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(75, 108, 183, 0.2);
+        }
+        
+        .answer-area {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4b6cb7;
+        }
+        
+        .answer-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #182848;
+            font-size: 1.3rem;
+        }
+        
+        .answer-content {
+            line-height: 1.6;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .speak-btn {
+            background-color: #4b6cb7;
+            color: white;
+        }
+        
+        .speak-btn:hover {
+            background-color: #3a5aa3;
+            transform: translateY(-2px);
+        }
+        
+        .stop-btn {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        .stop-btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+        
+        .status {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 500;
+            display: none;
+        }
+        
+        .speaking {
+            background-color: #e1f5fe;
+            color: #0277bd;
+            display: block;
+        }
+        
+        .no-answer {
+            background-color: #fff3e0;
+            color: #ef6c00;
+            display: block;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 15px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                border-radius: 0;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+        }
+    </style>
